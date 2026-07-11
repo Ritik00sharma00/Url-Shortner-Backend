@@ -5,6 +5,8 @@ import {authenticateJWT} from '../middlewares/AuthMiddleware.js';
 import { ipRateLimiter, userRateLimiter, shortCodeRateLimiter } from '../middlewares/Ratelimiter.js';
 const router = express.Router();
 
+
+router.get('/test',uploaded)
 router.get('/register',authenticate)
 router.post('/short',authenticateJWT,ipRateLimiter,userRateLimiter,shortCodeRateLimiter, createShortUrl);
 router.get('/:urlId',authenticateJWT,createOnClick);
