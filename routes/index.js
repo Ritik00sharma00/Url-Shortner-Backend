@@ -6,7 +6,7 @@ import { ipRateLimiter, userRateLimiter, shortCodeRateLimiter } from '../middlew
 const router = express.Router();
 
 
-router.get('/test',"test")
+
 router.get('/register',authenticate)
 router.post('/short',authenticateJWT,ipRateLimiter,userRateLimiter,shortCodeRateLimiter, createShortUrl);
 router.get('/:urlId',authenticateJWT,createOnClick);
